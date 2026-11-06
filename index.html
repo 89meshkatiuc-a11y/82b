@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title data-id="th-modified">صندوقچه‌ی ستاره‌ها: بازی اعداد اول</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap">
+<style>
+:root{--bg:#fdf3fa;--ink:#3a1f4d;--pri:#8a4fd0;--on:#fff;--pri2:#f1e0fb;--card:#fff;--pink:#ec5f9c;--gold:#f2a81d;--ok:#1f9d74;--red:#d63d5c;--line:#e2c9f0;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1030;--ink:#f6e9ff;--pri:#c79bff;--on:#1c1030;--pri2:#33204f;--card:#26173d;--pink:#ff86bb;--gold:#ffc857;--ok:#4cd6a3;--red:#ff7b95;--line:#4a3469;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1c1030;--ink:#f6e9ff;--pri:#c79bff;--on:#1c1030;--pri2:#33204f;--card:#26173d;--pink:#ff86bb;--gold:#ffc857;--ok:#4cd6a3;--red:#ff7b95;--line:#4a3469;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Vazirmatn',Tahoma,sans-serif;line-height:1.9;font-size:16px}
+main{max-width:560px;margin:0 auto;padding:16px}
+h1{font-size:2.1rem;font-weight:900;margin:.2em 0;line-height:1.4}h2{font-size:1.2rem;margin:.3em 0}
+.card{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:16px;margin:12px 0}
+button{font:inherit;cursor:pointer;border:2px solid var(--pri);background:var(--pri);color:var(--on);border-radius:14px;padding:10px 18px;font-weight:700;min-height:46px}
+button:disabled{opacity:.7;cursor:default}
+button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+input{font:inherit;padding:10px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink);width:100%;margin:8px 0}
+.hud{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:700;font-size:.95rem}
+.st{color:var(--line);font-size:1.15rem}.st.on{color:var(--gold)}.hp{color:var(--pink);letter-spacing:2px}.hp .off{color:var(--line)}
+.bar{height:8px;background:var(--pri2);border-radius:4px;margin:8px 0}.bar i{display:block;height:100%;background:var(--pink);border-radius:4px}
+.opts{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px}
+.opts button,.chip{background:var(--card);color:var(--ink);border-color:var(--line);font-size:1.02rem}
+.opts button.good{background:var(--ok);color:#fff;border-color:var(--ok)}.opts button.bad{background:var(--red);color:#fff;border-color:var(--red)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0}
+.chip{min-width:54px;padding:6px 10px;border-radius:14px;border:2px solid var(--line)}
+.chip.on{background:var(--pri);color:var(--on);border-color:var(--pri)}.chip.err{box-shadow:0 0 0 3px var(--red)}.chip.pr{background:var(--gold);color:#2b1a00;border-color:var(--gold)}
+.dots{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin:8px 0}.dots i{width:14px;height:14px;border-radius:50%;background:var(--pink)}
+.sv{display:grid;grid-template-columns:repeat(10,1fr);direction:ltr;gap:3px;margin:8px 0}
+.sv span{text-align:center;padding:3px 0;border-radius:6px;background:var(--pri2);font-size:.78rem}.sv .x{opacity:.3;text-decoration:line-through}.sv .p{background:var(--gold);color:#2b1a00;font-weight:700}
+.fb{margin:10px 0;padding:12px;border-radius:14px;border:2px solid var(--line)}.fb.ok{border-color:var(--ok)}.fb.no{border-color:var(--red)}
+svg{max-width:100%;height:auto;display:block;margin:0 auto}
+.q{font-size:1.08rem;font-weight:700}.muted{opacity:.75;font-size:.9rem;margin:0}
+</style>
+<meta property="og:title" content="صندوقچه‌ی ستاره‌ها: بازی اعداد اول" data-id="th-modified" ><meta name="description" content="Index2.html" data-id="th-modified" ><meta property="og:description" content="Index2.html" data-id="th-modified" ><meta property="og:image" content="https://tiiny.host/assets/logo-purple-bg.png" data-id="th-modified" ><meta property="og:image:width" content="1501" data-id="th-modified" ><meta property="og:image:height" content="1501" data-id="th-modified" ><meta property="og:image:type" content="image/png" data-id="th-modified" ><meta property="og:url" content="https://amethyst-bethany-56.tiiny.site/" data-id="th-modified" ><meta property="og:type" content="website" data-id="th-modified" ><script defer data-domain="amethyst-bethany-56.tiiny.site" src="https://analytics.tiiny.net/js/plausible.js"></script><script type="text/javascript" src="https://tiiny.host/ad-script.js"></script></head>
+<body>
+<main id="app"></main>
+<script>
+const $=id=>document.getElementById(id),app=$('app');
+const fa=n=>String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+const rnd=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+const shuf=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+const isP=n=>{if(n<2)return false;for(let d=2;d*d<=n;d++)if(n%d===0)return false;return true};
+const divs=n=>{const r=[];for(let d=1;d<=n;d++)if(n%d===0)r.push(d);return r};
+const gcd=(a,b)=>b?gcd(b,a%b):a;
+const S={name:'',lvl:0,r:0,score:0,hp:6,streak:0,done:0,total:0};
+const hearts=()=>Array.from({length:6},(_,i)=>`<span class="${i<S.hp?'':'off'}">♥</span>`).join('');
+
+function home(){
+ app.innerHTML=`<svg viewBox="0 0 300 140" role="img" aria-label="صندوقچه‌ی ستاره‌ها"><rect x="80" y="62" width="140" height="68" rx="14" fill="var(--pri)"/><path d="M80 78a70 40 0 0 1 140 0z" fill="var(--pink)"/><circle cx="150" cy="86" r="11" fill="var(--gold)"/>
+ <g fill="var(--gold)"><path d="M40 30l5 11 12 1-9 8 3 12-11-6-11 6 3-12-9-8 12-1z"/><path d="M250 20l4 9 10 1-8 7 2 10-9-5-9 5 2-10-8-7 10-1z"/><path d="M150 4l3 7 8 1-6 5 2 8-7-4-7 4 2-8-6-5 8-1z"/></g></svg>
+ <h1>صندوقچه‌ی ستاره‌ها</h1><p>هفت مأموریت، یک جشن بزرگ و کلیدی به اسم «اعداد اول».</p>
+ <div class="card"><label for="nm"><b>اسمت چیه؟</b></label><input id="nm" maxlength="20" autocomplete="off" placeholder="مثلاً: سارا"><button id="go">بزن بریم</button></div>`;
+ $('go').onclick=()=>{S.name=$('nm').value.trim();Object.assign(S,{lvl:0,r:0,score:0,hp:6,streak:0,done:0});intro(true)};
+}
+function intro(first){
+ const L=LV[S.lvl];
+ app.innerHTML=`<div class="card">${first?`<h2>سلام ${S.name?S.name+' جان':'دوست من'}!</h2><p>تو دانش‌آموز مدرسه‌ی کشتیرانی چابهاری و امشب جشن بزرگ مدرسه‌ست. خانم حسین‌بر، مدیر مدرسه، تو رو مسئول جشن کرده! صندوقچه‌ی ستاره‌ها فقط با کلید «اعداد اول» باز می‌شه. هفت مأموریت داری و هر کدوم یک ستاره روشن می‌کنه. من «ستاره»ام و همراهتم؛ هر جا اشتباه کردی، دلیلش رو نشونت می‌دم. فقط حفظ کردن کافی نیست، باید بفهمی چرا!</p>`:''}
+ <h2>${L.t}</h2><p>${L.s}</p><button id="go">شروع</button></div>`;
+ $('go').onclick=next;
+}
+function hud(){
+ return `<div class="hud"><span>${LV.map((_,i)=>`<span class="st ${i<S.lvl?'on':''}">★</span>`).join('')}</span><span class="hp" id="hp">${hearts()}</span><span id="sc">امتیاز ${fa(S.score)}</span></div><div class="bar"><i style="width:${S.done/S.total*100}%"></i></div><p class="muted">${LV[S.lvl].t}</p>`;
+}
+function next(){
+ const L=LV[S.lvl];
+ if(S.r>=L.r.length){
+  const k=L.k;S.lvl++;S.r=0;S.hp=6;
+  if(S.lvl>=LV.length)return end();
+  app.innerHTML=`<div class="card"><h2>★ ستاره‌ی ${fa(S.lvl)} روشن شد!</h2><p class="q">نکته‌ی طلایی این مأموریت:</p><p>${k}</p><button id="go">مأموریت بعدی</button></div>`;
+  $('go').onclick=()=>intro();return;
+ }
+ const q=L.r[S.r]();
+ app.innerHTML=hud()+`<div class="card" id="box"></div><div id="fb"></div>`;drawAny(q);
+}
+function good(pts,why){
+ S.streak++;const b=S.streak>=3?5:0;S.score+=pts+b;S.done++;
+ $('fb').innerHTML=`<div class="fb ok"><b>آفرین! +${fa(pts+b)}${b?' (جایزه‌ی پشت‌سرهم)':''}</b><br>${why}</div><button id="nx">ادامه</button>`;
+ $('nx').onclick=()=>{S.r++;next()};$('sc').textContent='امتیاز '+fa(S.score);$('nx').scrollIntoView({block:'nearest'});
+}
+function bad(h){
+ S.streak=0;S.hp--;
+ if(S.hp<=0){S.score=Math.max(0,S.score-20);S.done-=S.r;S.r=0;S.hp=6;
+  app.innerHTML=`<div class="card"><h2>قلب‌هات تموم شد</h2><p>اشکالی نداره! این مأموریت رو از اول شروع می‌کنیم؛ این بار با راهنمایی‌هایی که دیدی حتماً از پسش برمیای.</p><button id="go">دوباره امتحان کن</button></div>`;
+  $('go').onclick=()=>intro();return;}
+ $('hp').innerHTML=hearts();$('fb').innerHTML=`<div class="fb no"><b>یه راهنمایی برات دارم:</b><br>${h}</div>`;
+}
+function end(){
+ const r=S.score>=330?'ستاره‌ی درخشان ریاضی':S.score>=220?'ریاضی‌دان نوجوان':'کاشف اعداد';
+ app.innerHTML=`<svg viewBox="0 0 300 50" aria-hidden="true"><g fill="var(--gold)">${[30,80,130,170,220,270].map(x=>`<circle cx="${x}" cy="25" r="8"/>`).join('')}</g></svg>
+ <div class="card"><h1>صندوقچه باز شد!</h1><p class="q">${S.name||'دوست من'}، خانم حسین‌بر، مدیر مدرسه، از تو تشکر کرد و جشن با کمک تو شروع شد.<br>درجه‌ی تو: ${r}<br>امتیاز: ${fa(S.score)}</p>
+ <p>حالا می‌دونی چرا ۱ اول نیست، چرا ۲ تنها اولِ زوجه، غربال چطور کار می‌کنه و برای آزمون اول بودن فقط تا ریشه‌ی عدد لازمه بری. این‌ها رو به دوستات هم یاد بده!</p><button id="go">یک بار دیگه</button></div>`;
+ $('go').onclick=home;
+}
+const drawAny=q=>q.kind==='pick'?drawPick(q):q.kind==='tree'?drawTree(q):drawMcq(q);
+function fin(q,pts){
+ if(q.nx){$('fb').innerHTML=`<div class="fb ok"><b>درسته!</b><br>${q.why}</div><button id="nx">ادامه</button>`;$('nx').onclick=()=>{$('fb').innerHTML='';drawAny(q.nx())};$('nx').scrollIntoView({block:'nearest'})}
+ else good(pts,q.why);
+}
+const mk=(text,ans,why,hint,svg,wrong)=>{let o=[ans];for(const w of shuf(wrong))if(!o.includes(w)&&o.length<4)o.push(w);o=shuf(o);return{kind:'mcq',text,svg,opts:o,ans:o.indexOf(ans),why,hint}};
+function drawMcq(q){
+ $('box').innerHTML=`${q.svg||''}<p class="q">${q.text}</p><div class="opts">${q.opts.map((o,i)=>`<button data-i="${i}">${o}</button>`).join('')}</div>`;
+ document.querySelectorAll('.opts button').forEach(b=>b.onclick=()=>{
+  if(+b.dataset.i===q.ans){b.classList.add('good');document.querySelectorAll('.opts button').forEach(x=>x.disabled=true);fin(q,10)}
+  else{b.classList.add('bad');b.disabled=true;bad(q.hint||'دوباره فکر کن.')}
+ });
+}
+function drawPick(q){
+ const sel=new Set();
+ $('box').innerHTML=`${q.pre||''}<p class="q">${q.text}</p><p class="muted">☑ ممکن است چند گزینه درست باشد. هر چندتا که فکر می‌کنی را بزن (دوباره بزنی برمی‌گردد)، بعد «بررسی».</p><div class="chips" id="ch">${q.items.map(([k,l])=>`<button class="chip" data-k="${k}">${l}</button>`).join('')}</div><button id="ck">بررسی</button>`;
+ const cs=[...document.querySelectorAll('#ch .chip')];
+ cs.forEach(c=>c.onclick=()=>{const k=c.dataset.k;sel.has(k)?sel.delete(k):sel.add(k);c.classList.toggle('on')});
+ $('ck').onclick=()=>{
+  const cor=[...q.cor].map(String),w=[...sel].filter(k=>!cor.includes(k)),m=cor.filter(k=>!sel.has(k));
+  cs.forEach(c=>c.classList.toggle('err',w.includes(c.dataset.k)||m.includes(c.dataset.k)));
+  if(!w.length&&!m.length){$('ck').disabled=true;cs.forEach(c=>c.disabled=true);fin(q,15)}
+  else{const f=v=>isNaN(+v)?v:+v;bad(w.length?q.hw(f(w[0])):q.hm(f(m[0])))}
+ };
+}
+function drawTree(q){
+ let nodes=[q.n],log=[],sel=null;
+ const R=()=>{
+  $('box').innerHTML=`<p class="q">${q.text}</p><div class="chips">${nodes.map((n,i)=>isP(n)?`<span class="chip pr">${fa(n)}</span>`:`<button class="chip ${sel===i?'on':''}" data-i="${i}">${fa(n)}</button>`).join('')}</div>
+  ${sel!==null?`<p>${fa(nodes[sel])} را با کدام شمارنده بشکنم؟</p><div class="chips">${Array.from({length:Math.min(nodes[sel]-3,10)},(_,j)=>j+2).map(d=>`<button class="chip" data-d="${d}">${fa(d)}</button>`).join('')}</div>`:''}
+  <p class="muted">${log.join('<br>')}</p>`;
+  document.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{sel=+b.dataset.i;R()});
+  document.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{
+   const d=+b.dataset.d,n=nodes[sel];
+   if(n%d){bad(`${fa(n)} ÷ ${fa(d)} باقیمانده‌ی ${fa(n%d)} دارد، پس ${fa(d)} شمارنده‌ی ${fa(n)} نیست. شمارنده‌ای بزن که تقسیم دقیق شود.`);return}
+   nodes.splice(sel,1,d,n/d);log.push(`${fa(n)} = ${fa(d)} × ${fa(n/d)}`);sel=null;
+   if(nodes.every(isP)){q.why=`${fa(q.n)} = ${nodes.slice().sort((a,b)=>a-b).map(fa).join(' × ')}. عددهای اول دیگر شکسته نمی‌شوند، برای همین تجزیه همین‌جا تمام می‌شود.`;R();fin(q,15)}else R();
+  });
+ };R();
+}
+
+/* ---------- round builders ---------- */
+const C=(t,a,w,y,h)=>()=>mk(t,a,y,h,null,w);
+const P=(text,arr,cor,hw,hm,why,pre)=>()=>({kind:'pick',text,items:arr.map(k=>Array.isArray(k)?k:[k,fa(k)]),cor:new Set(cor),hw,hm,why,pre});
+const rg=(a,b)=>Array.from({length:b-a+1},(_,i)=>a+i);
+const grp=N=>P(`${fa(N)} نفر می‌خواهند در ردیف‌های مساوی بایستند (آرایش مستطیلی). ${fa(N)} نفر می‌تواند چند ردیف داشته باشد؟ بیشتر از یک جواب درست دارد؛ همه‌ی حالت‌های درست را انتخاب کن.`,rg(1,N),divs(N),
+ k=>`یادت باشد به تعداد شمارنده‌های ${fa(N)} باید گزینه انتخاب کنی. ${fa(N)} ÷ ${fa(k)} باقیمانده‌ی ${fa(N%k)} دارد؛ پس با ${fa(k)} ردیف، آخرین ردیف ناقص می‌ماند.`,
+ k=>`به تعداد شمارنده‌های ${fa(N)} باید گزینه انتخاب کنی؛ یکی از آن‌ها ${fa(k)} ردیف است: ${fa(k)} × ${fa(N/k)} = ${fa(N)}.`,
+ `آرایش‌های ممکن: ${divs(N).map(d=>`${fa(d)}×${fa(N/d)}`).join('، ')}.`,`<div class="dots">${'<i></i>'.repeat(N)}</div>`);
+const tree=n=>()=>({kind:'tree',n,text:`درخت تجزیه‌ی ${fa(n)}: هر عدد مرکب را بشکن تا فقط عددهای اول (طلایی) بمانند.`});
+const gq=()=>{const [a,b]=shuf([[6,15],[2,8],[3,9],[12,18],[5,12],[18,24],[7,8],[24,25],[16,40]])[0],g=gcd(a,b);
+ return mk(`ب.م.م دو عدد ${fa(a)} و ${fa(b)} چند است؟ (برای بسته‌بندی هدیه‌ها، بزرگ‌ترین بسته‌ی مساوی)`,fa(g),`شمارنده‌های ${fa(a)}: ${divs(a).map(fa).join('، ')}. شمارنده‌های ${fa(b)}: ${divs(b).map(fa).join('، ')}. بزرگ‌ترین شمارنده‌ی مشترک ${fa(g)} است.`,'شمارنده‌های هر دو عدد را بنویس و بزرگ‌ترین عددِ مشترک را پیدا کن.',null,[fa(1),fa(Math.min(a,b)),fa(g*2),fa(g+1),fa(g+2)])};
+const cop=()=>{const ps=[[8,9],[6,9],[10,21],[12,18],[14,15],[4,10]],cor=ps.filter(([a,b])=>gcd(a,b)===1).map(p=>p.join(','));
+ return {kind:'pick',text:'کدام جفت‌ها «نسبت به هم اول» هستند؟ (ب.م.م آن‌ها ۱ باشد؛ لازم نیست خودشان اول باشند)',items:ps.map(p=>[p.join(','),`(${fa(p[0])}، ${fa(p[1])})`]),cor:new Set(cor),
+ hw:k=>{const [a,b]=k.split(',').map(Number);return`ب.م.م ${fa(a)} و ${fa(b)} برابر ${fa(gcd(a,b))} است، پس نسبت به هم اول نیستند.`},hm:k=>{const [a,b]=k.split(',').map(Number);return`ب.م.م ${fa(a)} و ${fa(b)} برابر ۱ است؛ یعنی شمارنده‌ی مشترکی جز ۱ ندارند.`},why:'(۸،۹) هر دو مرکب‌اند ولی فقط ۱ شمارنده‌ی مشترک دارند؛ پس نسبت به هم اول‌اند.'}};
+const tst=n=>()=>{const cor=[2,3,5,7,11,13].filter(p=>p*p<=n),L=cor[cor.length-1];
+ const q={kind:'pick',text:`می‌خواهیم بفهمیم ${fa(n)} اول است یا نه. کدام عددهای اول را باید به‌عنوان شمارنده امتحان کنیم؟ (هر عددی که مربعش از ${fa(n)} بیشتر نیست)`,items:[2,3,5,7,11,13].map(k=>[k,fa(k)]),cor:new Set(cor),
+ hw:k=>`${fa(k)}×${fa(k)}=${fa(k*k)} از ${fa(n)} بزرگ‌تر است. اگر ${fa(n)} شمارنده‌ی بزرگ‌تر از ${fa(k)} داشت، جفتش کوچک‌تر بود و قبلاً پیدا می‌شد.`,
+ hm:k=>`${fa(k)}×${fa(k)}=${fa(k*k)} از ${fa(n)} بیشتر نیست، پس ${fa(k)} هم باید امتحان شود.`,why:`امتحان تا ${fa(L)} کافی است، چون ${fa(L)}² از ${fa(n)} بیشتر نیست ولی عدد اولِ بعدی از ${fa(n)} بزرگ‌تر می‌شود.`};
+ q.nx=()=>{const f=cor.find(p=>n%p===0);
+  return mk(`${cor.map(p=>`${fa(n)} ÷ ${fa(p)} ← باقیمانده ${fa(n%p)}`).join('<br>')}<br>پس ${fa(n)} اول است یا مرکب؟`,f?'مرکب':'اول',f?`${fa(n)} = ${fa(f)} × ${fa(n/f)}، پس مرکب است.`:`تا ${fa(L)} هیچ شمارنده‌ای پیدا نشد، پس ${fa(n)} اول است.`,'اگر باقیمانده‌ی یکی از تقسیم‌ها صفر باشد، عدد شمارنده‌ی دیگری هم دارد.',null,['مرکب','اول'])};
+ return q};
+const sieve=()=>{
+ const cr=new Set(),G=h=>`<div class="sv">${rg(1,50).map(i=>`<span class="${cr.has(i)?'x':h?'p':''}">${fa(i)}</span>`).join('')}</div>`;
+ const fin2=()=>mk('چند عدد اول بین ۱ تا ۵۰ (طلایی‌ها) باقی ماند؟','۱۵','۲، ۳، ۵، ۷، ۱۱، ۱۳، ۱۷، ۱۹، ۲۳، ۲۹، ۳۱، ۳۷، ۴۱، ۴۳ و ۴۷؛ یعنی ۱۵ عدد.','طلایی‌ها را یکی‌یکی بشمار.',G(true),['۱۴','۱۶','۱۰','۱۲']);
+ const s11=()=>{const q=mk('حالا ۱۱ خط‌نخورده مانده. باید مضرب‌هایش را هم خط بزنیم؟','نه؛ ۱۱×۱۱=۱۲۱ از ۵۰ بیشتر است','مضرب‌های کوچک‌تر ۱۱ (مثل ۲۲ و ۳۳) قبلاً به‌خاطر ۲ و ۳ خط خورده‌اند و اولین مضرب تازه ۱۲۱ است که بیرون از جدول است. پس کار تمام شد.','اولین مضربِ تازه‌ی ۱۱ را حساب کن؛ آیا در جدول ۱ تا ۵۰ هست؟',G(false),['بله؛ باید همه‌ی عددها را امتحان کنیم','بله؛ چون ۱۱ اول نیست','نه؛ چون ۱۱ زوج است']);q.nx=fin2;return q};
+ const st=i=>{const p=[2,3,5,7][i];
+  const q=mk(`عدد ${fa(p)} خط نخورده، پس اول است. کوچک‌ترین مضرب ${fa(p)} که هنوز خط نخورده کدام است؟`,fa(p*p),`مضرب‌های ${fa(p)}×k برای k کوچک‌تر از ${fa(p)} قبلاً مضرب عددهای اول کوچک‌تر بوده و خط خورده‌اند؛ پس اولین خط‌خوردنِ تازه ${fa(p)}×${fa(p)}=${fa(p*p)} است.`,`مضرب‌های ${fa(p)} را بنویس و ببین کدام‌ها قبلاً خط خورده‌اند.`,G(false),[fa(2*p),fa(p*(p+1)),fa(p*(p-1)),fa(p*p+p+1)]);
+  q.nx=()=>{for(let m=p*p;m<=50;m+=p)cr.add(m);return i<3?st(i+1):s11()};return q};
+ const q0=mk('غربال را شروع می‌کنیم: عددهای ۱ تا ۵۰ نوشته شده‌اند. عدد ۱ را باید خط بزنیم؟','بله؛ ۱ اول نیست','۱ فقط یک شمارنده دارد، ولی عدد اول باید دقیقاً دو شمارنده داشته باشد؛ پس خط می‌خورد.','عدد اول چند شمارنده باید داشته باشد؟',G(false),['نه؛ ۱ اول است چون فقط بر ۱ بخش‌پذیر است','نه؛ ۱ مرکب است و نباید حذف شود','بله؛ چون ۱ زوج است']);
+ q0.nx=()=>{cr.add(1);return st(0)};return q0};
+
+const LV=[
+{t:'مأموریت ۱: ردیف‌های اجرای افتتاحیه',s:'گروه نمایش باید روی صحنه ردیف‌های مساوی بسازد. ببین هر تعداد نفر چند جور می‌تواند بایستد.',k:'عددی که فقط دو آرایش مستطیلی (۱×n و n×۱) دارد، عدد اول است؛ یعنی فقط ۱ و خودش شمارنده‌اش هستند.',
+ r:[grp(8),grp(15),grp(19),C('کدام عدد فقط دو آرایش مستطیلی دارد؟',fa(13),[fa(12),fa(9),fa(15)],'۱۳ فقط ۱×۱۳ و ۱۳×۱ دارد؛ یعنی فقط ۱ و خودش شمارنده‌اند. چنین عددی «اول» نام دارد.','برای هر عدد، شمارنده‌هایش را بشمار؛ ۱۲ و ۹ و ۱۵ بیش از دو آرایش دارند.')]},
+{t:'مأموریت ۲: رمز کارت‌های دعوت',s:'هر کارت دعوت یک رمز دارد: عدد روی کارت را تا عامل‌های اول بشکن.',k:'هر عدد مرکب را می‌شود به عامل‌های اول شکست؛ عدد اول دیگر شکسته نمی‌شود.',r:[tree(12),tree(30),tree(36),tree(60)]},
+{t:'مأموریت ۳: تالار اول، مرکب و یک',s:'مهمان‌ها باید در سه سالن بنشینند: اول‌ها، مرکب‌ها و عدد ۱. ببین هر عدد به کدام سالن می‌رود.',k:'اول: دقیقاً دو شمارنده. مرکب: بیش از دو شمارنده (حاصل‌ضرب دو عدد بزرگ‌تر از ۱). عدد ۱: فقط یک شمارنده، نه اول نه مرکب.',
+ r:[P('همه‌ی عددهای اول از ۱ تا ۲۰ را انتخاب کن.',rg(1,20),[2,3,5,7,11,13,17,19],k=>k===1?'۱ فقط یک شمارنده دارد؛ اول باید دقیقاً دو شمارنده داشته باشد.':`${fa(k)} = ${fa(divs(k)[1])} × ${fa(k/divs(k)[1])}؛ پس شمارنده‌ی بیشتری دارد و مرکب است.`,k=>`${fa(k)} فقط بر ۱ و خودش بخش‌پذیر است، پس اول است.`,'درست انتخاب کردی: ۲، ۳، ۵، ۷، ۱۱، ۱۳، ۱۷ و ۱۹ اول‌اند.'),
+  P('کدام‌ها مرکب‌اند؟',[21,31,35,47,49],[21,35,49],k=>`${fa(k)} فقط بر ۱ و خودش بخش‌پذیر است، پس اول است.`,k=>`${fa(k)} = ${fa(divs(k)[1])} × ${fa(k/divs(k)[1])}، پس مرکب است.`,'۲۱=۳×۷ و ۳۵=۵×۷ و ۴۹=۷×۷ مرکب‌اند.'),
+  C('عدد ۱ چه دسته‌ای است؟','نه اول، نه مرکب',['اول','مرکب','هم اول هم مرکب'],'۱ فقط یک شمارنده دارد؛ اول باید دقیقاً دو شمارنده داشته باشد و مرکب باید حاصل‌ضرب دو عدد بزرگ‌تر از ۱ باشد.','شمارنده‌های ۱ را بنویس.'),
+  C('آیا جمله‌ی «هر عدد طبیعی دست‌کم ۲ شمارنده دارد» درست است؟','نادرست؛ ۱ فقط یک شمارنده دارد',['درست؛ هر عدد ۱ و خودش را دارد','نادرست؛ ۲ فقط یک شمارنده دارد','درست؛ ۱ هم دو شمارنده دارد'],'۱ و «خودش» در عدد ۱ یکی هستند، پس فقط یک شمارنده دارد.','عدد ۱ را امتحان کن.'),
+  C('تعداد عددهای مرکب کوچک‌تر از ۲۰ چندتاست؟ (۸ عدد اول داریم)',fa(10),[fa(8),fa(11),fa(9)],'۱ تا ۱۹ یعنی ۱۹ عدد؛ ۸ تا اول و عدد ۱ نه اول است نه مرکب، پس ۱۹−۸−۱=۱۰.','عدد ۱ را فراموش نکن؛ مرکب نیست.'),
+  C('آیا همه‌ی مضرب‌های یک عدد طبیعی مرکب‌اند؟','نه؛ مثلاً ۳ مضرب ۳ است ولی اول است',['بله؛ چون همه بزرگ‌ترند','بله؛ چون زوج‌اند','نه؛ چون ۱ مضرب همه است'],'هر عدد مضرب خودش هم هست؛ مثلاً ۲ و ۳ و ۵ اول‌اند.','خودِ عدد هم جزو مضرب‌هایش است.')]},
+{t:'مأموریت ۴: بسته‌های هدیه',s:'هدیه‌ها را باید در بسته‌های مساوی بچینی. ب.م.م به تو می‌گوید بزرگ‌ترین بسته چقدر است.',k:'اگر ب.م.م دو عدد ۱ باشد، آن‌ها «نسبت به هم اول»اند؛ لازم نیست خودشان اول باشند (مثل ۸ و ۹).',
+ r:[gq,gq,cop,C('دو عدد طبیعی متوالی نسبت به هم اول‌اند؟','بله',['نه','فقط اگر فرد باشند','فقط اگر زوج باشند'],'هر شمارنده‌ی مشترک باید اختلاف دو عدد را هم بشمارد. اختلاف ۱ است، پس ب.م.م برابر ۱ است.','مثلاً ۸ و ۹ یا ۱۴ و ۱۵ را امتحان کن.'),
+  C('دو عدد نسبت به هم اول‌اند. ک.م.م آن‌ها چطور به دست می‌آید؟','حاصل‌ضرب دو عدد',['مجموع دو عدد','بزرگ‌ترین عدد','ب.م.م آن‌ها'],'وقتی شمارنده‌ی مشترکی جز ۱ نیست، کوچک‌ترین مضرب مشترک همان حاصل‌ضرب است. مثلاً ک.م.م ۴ و ۹ برابر ۳۶ است.','ک.م.م ۴ و ۹ را حساب کن.'),
+  C('کدام جفت، هر دو مرکب‌اند ولی نسبت به هم اول؟','۸ و ۹',['۶ و ۹','۴ و ۱۰','۱۲ و ۱۸'],'۸ و ۹ مرکب‌اند و ب.م.م آن‌ها ۱ است.','ب.م.م هر جفت را حساب کن.')]},
+{t:'مأموریت ۵: غربالِ جادویی',s:'جدول ۱ تا ۵۰ را غربال می‌کنیم تا فقط اول‌ها بمانند. نقشه همان است که در کتاب دیدی؛ ولی این بار باید دلیل هر قدم را بفهمی.',k:'در غربال، خط‌زدن مضرب‌های p از p×p شروع می‌شود و وقتی مربع عدد بعدی از آخرین عدد جدول بیشتر شد، کار تمام است.',r:[sieve]},
+{t:'مأموریت ۶: بازرسِ اعداد',s:'عددهای بزرگ‌تر را نمی‌شود غربال کرد! باید ببینی برای آزمون اول بودن کدام عددها را لازم است امتحان کنی.',k:'برای آزمون اول بودن عدد n، فقط بر عددهای اولی تقسیمش کن که مربعشان از n بیشتر نیست.',r:[tst(47),tst(97),tst(131),tst(143)]},
+{t:'مأموریت ۷: صندوقچه‌ی ستاره‌ها',s:'آخرین قفل! پرسش‌های سخت‌تر که همه‌ی چیزهایی را که یاد گرفتی با هم می‌خواهند.',k:'',
+ r:[C('کدام جفت «اول دوقلو» است؟ (دو عدد اول که دو واحد اختلاف دارند)','(۱۷ ، ۱۹)',['(۱۵ ، ۱۷)','(۷ ، ۱۳)','(۹ ، ۱۱)'],'۱۷ و ۱۹ هر دو اول‌اند و اختلافشان ۲ است.','هر دو عدد باید اول باشند و اختلافشان دقیقاً ۲.'),
+  C('چرا فقط یک «سه‌قلوی اول» (۳، ۵، ۷) وجود دارد؟','در هر سه عدد فرد متوالی یکی مضرب ۳ است',['چون عددهای بزرگ‌تر اول نمی‌شوند','چون ۲ در آن‌ها نیست','چون ۹ بعد از ۷ می‌آید'],'یکی از هر سه عدد فرد پشت‌سرهم مضرب ۳ است و فقط وقتی اول می‌ماند که خود ۳ باشد.','سه عدد فرد پشت‌سرهم مثل ۹، ۱۱، ۱۳ را نگاه کن؛ کدام مضرب ۳ است؟'),
+  C('مجموع دو عدد اول ۹۹ است. آن دو عدد کدام‌اند؟','۲ و ۹۷',['۲ و ۹۹','۳ و ۹۶','۴۹ و ۵۰'],'مجموع دو عدد فرد زوج می‌شود. پس یکی از آن‌ها باید زوج باشد، یعنی ۲ (تنها اولِ زوج)؛ دیگری ۹۹−۲=۹۷ که اول است.','۹۹ فرد است؛ مجموع دو فرد چه می‌شود؟'),
+  C('کوچک‌ترین عددی که ۴ و ۹ شمارنده‌هایش باشند کدام است؟',fa(36),[fa(13),fa(18),fa(72)],'۴ و ۹ نسبت به هم اول‌اند، پس ک.م.م آن‌ها ۴×۹=۳۶ است.','ک.م.م ۴ و ۹ را حساب کن.'),
+  C('کدام تجزیه‌ی ۹۰ فقط عامل‌های اول دارد؟','۲ × ۳ × ۳ × ۵',['۹ × ۱۰','۲ × ۴۵','۳ × ۳۰'],'۹ و ۱۰ و ۴۵ و ۳۰ مرکب‌اند و می‌شود شکستشان؛ فقط ۲×۳×۳×۵=۹۰ شکستنی نیست.','همه‌ی عامل‌ها باید اول باشند.'),
+  P('عددهای اول بین ۴۰ و ۶۰ را انتخاب کن.',rg(41,59),[41,43,47,53,59],k=>`${fa(k)} = ${fa(divs(k)[1])} × ${fa(k/divs(k)[1])}؛ پس مرکب است.`,k=>`${fa(k)} بر هیچ عدد اولِ کوچک‌تر از ریشه‌اش بخش‌پذیر نیست، پس اول است.`,'۴۱، ۴۳، ۴۷، ۵۳ و ۵۹ اول‌اند.')]}
+];
+S.total=LV.reduce((a,l)=>a+l.r.length,0);
+home();
+</script>
+</body>
+</html>
